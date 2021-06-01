@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell - random date and categories" enabled="true">
+      <stringProp name="filename"></stringProp>
+      <stringProp name="parameters"></stringProp>
+      <boolProp name="resetInterpreter">false</boolProp>
+      <stringProp name="script">import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Random;
+
+calendar = Calendar.getInstance();
+
+calendar.set(2021, 0, 1);
+startTime = calendar.getTimeInMillis();
+calendar.set(2021, 4, 25);
+endTime = calendar.getTimeInMillis();
+
+randomTime = startTime + (long)(Math.random() * (endTime-startTime));
+
+formatter = new SimpleDateFormat(&quot;MM-dd-yyyy&quot;);
+calendar.setTimeInMillis(randomTime);
+vars.put(&quot;randomDate&quot;, formatter.format(calendar.getTime()));
+
+String[] incomeCategories = {
+	&quot;Salaries and bonuses&quot;,
+ 	&quot;Investments&quot;,
+	&quot;Payments and others&quot;
+};
+
+String[] expenseCategories = {
+	&quot;Food and drink&quot;,
+ 	&quot;Entertainment&quot;,
+	&quot;Taxes and payments&quot;,
+	&quot;Shopping&quot;
+};
+
+Random randomObject = new Random();
+
+int index = randomObject.nextInt(3);
+vars.put(&quot;incomeCategory&quot;, incomeCategories[index]);
+int index = randomObject.nextInt(4);
+vars.put(&quot;expenseCategory&quot;, expenseCategories[index]);</stringProp>
+    </BeanShellPreProcessor>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
