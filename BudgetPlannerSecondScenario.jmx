@@ -147,7 +147,7 @@
           </ResponseAssertion>
           <hashTree/>
           <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">10000</stringProp>
+            <stringProp name="ConstantTimer.delay">9000</stringProp>
             <stringProp name="RandomTimer.range">5000</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
